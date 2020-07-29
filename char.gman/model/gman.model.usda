@@ -1,0 +1,41 @@
+#usda 1.0
+(
+    defaultPrim = "ball"
+)
+
+def Xform "ball" (
+    assetInfo = {
+        asset identifier = @my:ball:asset@
+        string name = "ball"
+    }
+    kind = "component"
+    prepend payload = [
+        @./vset/ball.vset.usda@,
+        @./ball.model.P.usda@
+    ]
+    variants = {
+        string instancing = "on"
+    }
+    append variantSets = "instancing"
+)
+{
+    variantSet "instancing" = {
+        "off" {
+            over "payload" (
+                instanceable = false
+            )
+            {
+            }
+
+        }
+        "on" {
+            over "payload" (
+                instanceable = true
+            )
+            {
+            }
+
+        }
+    }
+}
+
