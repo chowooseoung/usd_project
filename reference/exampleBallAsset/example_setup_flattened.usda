@@ -1,0 +1,820 @@
+#usda 1.0
+(
+    doc = """Generated from Composed Stage of root layer c:\\Users\\jinly\\Downloads\\compression\\exampleBallAsset\\exampleBallAsset\\example_setup.usda
+"""
+    endTimeCode = 1
+    framesPerSecond = 24
+    startTimeCode = 1
+    timeCodesPerSecond = 24
+)
+
+over "Flattened_Master_1"
+{
+    def Xform "geo"
+    {
+        def Sphere "sphere"
+        {
+            rel material:binding = </Flattened_Master_1/mtl/ball_mtl>
+            double radius = 0.6000000238418579
+            matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0.6, 0, 1) )
+            uniform token[] xformOpOrder = ["xformOp:transform"]
+        }
+    }
+
+    def Scope "mtl"
+    {
+        def Material "ball_mtl"
+        {
+            token outputs:ri:surface.connect = </Flattened_Master_1/mtl/ball_mtl/pxrdisney1.outputs:bxdf_out>
+
+            def Shader "pxrdisney1"
+            {
+                uniform token info:id = "PxrDisney"
+                color3f inputs:baseColor.connect = </Flattened_Master_1/mtl/ball_mtl/pxrprimvar1.outputs:resultRGB>
+                token outputs:bxdf_out
+            }
+
+            def Shader "pxrprimvar1"
+            {
+                uniform token info:id = "PxrPrimvar"
+                color3f inputs:defaultColor = (0.2, 0.5, 0.8)
+                string inputs:type = "color"
+                string inputs:varname = "foo"
+                color3f outputs:resultRGB
+            }
+        }
+    }
+}
+
+over "Flattened_Master_2"
+{
+    def Xform "geo"
+    {
+        def Sphere "egg"
+        {
+            rel material:binding = </Flattened_Master_2/mtl/ball_mtl>
+            double radius = 1
+            matrix4d xformOp:transform = ( (0.7, 0, 0, 0), (0, 1, 0, 0), (0, 0, 0.7, 0), (0, 0.9, 0, 1) )
+            uniform token[] xformOpOrder = ["xformOp:transform"]
+        }
+    }
+
+    def Scope "mtl"
+    {
+        def Material "ball_mtl"
+        {
+            token outputs:ri:surface.connect = </Flattened_Master_2/mtl/ball_mtl/pxrdisney1.outputs:bxdf_out>
+
+            def Shader "pxrdisney1"
+            {
+                uniform token info:id = "PxrDisney"
+                color3f inputs:baseColor.connect = </Flattened_Master_2/mtl/ball_mtl/pxrprimvar1.outputs:resultRGB>
+                token outputs:bxdf_out
+            }
+
+            def Shader "pxrprimvar1"
+            {
+                uniform token info:id = "PxrPrimvar"
+                color3f inputs:defaultColor = (0.2, 0.5, 0.8)
+                string inputs:type = "color"
+                string inputs:varname = "foo"
+                color3f outputs:resultRGB
+            }
+        }
+    }
+}
+
+def Xform "instances" (
+    kind = "assembly"
+)
+{
+    def Scope "Prototypes"
+    {
+        token visibility = "invisible"
+
+        def Xform "ball" (
+            assetInfo = {
+                asset identifier = @my:ball:asset@
+                string name = "ball"
+            }
+            kind = "component"
+        )
+        {
+            def Xform "payload" (
+                instanceable = true
+                add references = </Flattened_Master_1>
+            )
+            {
+            }
+        }
+    }
+
+    def Xform "Instance0" (
+        assetInfo = {
+            asset identifier = @my:ball:asset@
+            string name = "ball"
+        }
+        kind = "component"
+    )
+    {
+        custom color3f[] primvars:displayColor = [(0, 0.161, 0.9)] (
+            interpolation = "constant"
+        )
+        custom color3f[] primvars:foo = [(0, 0.161, 0.9)] (
+            interpolation = "constant"
+        )
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (-5, 0, -5, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+
+        def Xform "payload" (
+            instanceable = true
+            add references = </Flattened_Master_1>
+        )
+        {
+        }
+    }
+
+    def Xform "Instance1" (
+        assetInfo = {
+            asset identifier = @my:ball:asset@
+            string name = "ball"
+        }
+        kind = "component"
+    )
+    {
+        custom color3f[] primvars:displayColor = [(0, 0.9, 0.45)] (
+            interpolation = "constant"
+        )
+        custom color3f[] primvars:foo = [(0, 0.9, 0.45)] (
+            interpolation = "constant"
+        )
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (-2.5, 0, -5, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+
+        def Xform "payload" (
+            instanceable = true
+            add references = </Flattened_Master_1>
+        )
+        {
+        }
+    }
+
+    def Xform "Instance2" (
+        assetInfo = {
+            asset identifier = @my:ball:asset@
+            string name = "ball"
+        }
+        kind = "component"
+    )
+    {
+        custom color3f[] primvars:displayColor = [(0, 0.161, 0.9)] (
+            interpolation = "constant"
+        )
+        custom color3f[] primvars:foo = [(0, 0.161, 0.9)] (
+            interpolation = "constant"
+        )
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, -5, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+
+        def Xform "payload" (
+            instanceable = true
+            add references = </Flattened_Master_1>
+        )
+        {
+        }
+    }
+
+    def Xform "Instance3" (
+        assetInfo = {
+            asset identifier = @my:ball:asset@
+            string name = "ball"
+        }
+        kind = "component"
+    )
+    {
+        custom color3f[] primvars:displayColor = [(0, 0.161, 0.9)] (
+            interpolation = "constant"
+        )
+        custom color3f[] primvars:foo = [(0, 0.161, 0.9)] (
+            interpolation = "constant"
+        )
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (2.5, 0, -5, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+
+        def Xform "payload" (
+            instanceable = false
+        )
+        {
+            def Xform "geo"
+            {
+                def Sphere "sphere"
+                {
+                    rel material:binding = </instances/Instance3/payload/mtl/ball_mtl>
+                    double radius = 0.6000000238418579
+                    matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0.6, 0, 1) )
+                    uniform token[] xformOpOrder = ["xformOp:transform"]
+                }
+            }
+
+            def Scope "mtl"
+            {
+                def Material "ball_mtl"
+                {
+                    token outputs:ri:surface.connect = </instances/Instance3/payload/mtl/ball_mtl/pxrdisney1.outputs:bxdf_out>
+
+                    def Shader "pxrdisney1"
+                    {
+                        uniform token info:id = "PxrDisney"
+                        color3f inputs:baseColor.connect = </instances/Instance3/payload/mtl/ball_mtl/pxrprimvar1.outputs:resultRGB>
+                        token outputs:bxdf_out
+                    }
+
+                    def Shader "pxrprimvar1"
+                    {
+                        uniform token info:id = "PxrPrimvar"
+                        color3f inputs:defaultColor = (0.2, 0.5, 0.8)
+                        string inputs:type = "color"
+                        string inputs:varname = "foo"
+                        color3f outputs:resultRGB
+                    }
+                }
+            }
+        }
+    }
+
+    def Xform "Instance4" (
+        assetInfo = {
+            asset identifier = @my:ball:asset@
+            string name = "ball"
+        }
+        kind = "component"
+    )
+    {
+        custom color3f[] primvars:displayColor = [(0, 0.161, 0.9)] (
+            interpolation = "constant"
+        )
+        custom color3f[] primvars:foo = [(0, 0.161, 0.9)] (
+            interpolation = "constant"
+        )
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (5, 0, -5, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+
+        def Xform "payload" (
+            instanceable = false
+        )
+        {
+            def Xform "geo"
+            {
+                def Sphere "sphere"
+                {
+                    rel material:binding = </instances/Instance4/payload/mtl/ball_mtl>
+                    double radius = 0.6000000238418579
+                    matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0.6, 0, 1) )
+                    uniform token[] xformOpOrder = ["xformOp:transform"]
+                }
+            }
+
+            def Scope "mtl"
+            {
+                def Material "ball_mtl"
+                {
+                    token outputs:ri:surface.connect = </instances/Instance4/payload/mtl/ball_mtl/pxrdisney1.outputs:bxdf_out>
+
+                    def Shader "pxrdisney1"
+                    {
+                        uniform token info:id = "PxrDisney"
+                        color3f inputs:baseColor.connect = </instances/Instance4/payload/mtl/ball_mtl/pxrprimvar1.outputs:resultRGB>
+                        token outputs:bxdf_out
+                    }
+
+                    def Shader "pxrprimvar1"
+                    {
+                        uniform token info:id = "PxrPrimvar"
+                        color3f inputs:defaultColor = (0.2, 0.5, 0.8)
+                        string inputs:type = "color"
+                        string inputs:varname = "foo"
+                        color3f outputs:resultRGB
+                    }
+                }
+            }
+        }
+    }
+
+    def Xform "Instance5" (
+        assetInfo = {
+            asset identifier = @my:ball:asset@
+            string name = "ball"
+        }
+        kind = "component"
+    )
+    {
+        custom color3f[] primvars:displayColor = [(0.9, 0, 0)] (
+            interpolation = "constant"
+        )
+        custom color3f[] primvars:foo = [(0.9, 0, 0)] (
+            interpolation = "constant"
+        )
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (-5, 0, -2.5, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+
+        def Xform "payload" (
+            instanceable = true
+            add references = </Flattened_Master_2>
+        )
+        {
+        }
+    }
+
+    def Xform "Instance6" (
+        assetInfo = {
+            asset identifier = @my:ball:asset@
+            string name = "ball"
+        }
+        kind = "component"
+    )
+    {
+        custom color3f[] primvars:displayColor = [(0.9, 0, 0)] (
+            interpolation = "constant"
+        )
+        custom color3f[] primvars:foo = [(0.9, 0, 0)] (
+            interpolation = "constant"
+        )
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (-2.5, 0, -2.5, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+
+        def Xform "payload" (
+            instanceable = true
+            add references = </Flattened_Master_1>
+        )
+        {
+        }
+    }
+
+    def Xform "Instance7" (
+        assetInfo = {
+            asset identifier = @my:ball:asset@
+            string name = "ball"
+        }
+        kind = "component"
+    )
+    {
+        custom color3f[] primvars:displayColor = [(0.9, 0, 0)] (
+            interpolation = "constant"
+        )
+        custom color3f[] primvars:foo = [(0.9, 0, 0)] (
+            interpolation = "constant"
+        )
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, -2.5, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+
+        def Xform "payload" (
+            instanceable = true
+            add references = </Flattened_Master_2>
+        )
+        {
+        }
+    }
+
+    def Xform "Instance8" (
+        assetInfo = {
+            asset identifier = @my:ball:asset@
+            string name = "ball"
+        }
+        kind = "component"
+    )
+    {
+        custom color3f[] primvars:displayColor = [(0.9, 0, 0)] (
+            interpolation = "constant"
+        )
+        custom color3f[] primvars:foo = [(0.9, 0, 0)] (
+            interpolation = "constant"
+        )
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (2.5, 0, -2.5, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+
+        def Xform "payload" (
+            instanceable = true
+            add references = </Flattened_Master_1>
+        )
+        {
+        }
+    }
+
+    def Xform "Instance9" (
+        assetInfo = {
+            asset identifier = @my:ball:asset@
+            string name = "ball"
+        }
+        kind = "component"
+    )
+    {
+        custom color3f[] primvars:displayColor = [(0.9, 0, 0.9)] (
+            interpolation = "constant"
+        )
+        custom color3f[] primvars:foo = [(0.9, 0, 0.9)] (
+            interpolation = "constant"
+        )
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (5, 0, -2.5, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+
+        def Xform "payload" (
+            instanceable = true
+            add references = </Flattened_Master_1>
+        )
+        {
+        }
+    }
+
+    def Xform "Instance10" (
+        assetInfo = {
+            asset identifier = @my:ball:asset@
+            string name = "ball"
+        }
+        kind = "component"
+    )
+    {
+        custom color3f[] primvars:displayColor = [(0, 0.161, 0.9)] (
+            interpolation = "constant"
+        )
+        custom color3f[] primvars:foo = [(0, 0.161, 0.9)] (
+            interpolation = "constant"
+        )
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (-5, 0, 0, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+
+        def Xform "payload" (
+            instanceable = true
+            add references = </Flattened_Master_1>
+        )
+        {
+        }
+    }
+
+    def Xform "Instance11" (
+        assetInfo = {
+            asset identifier = @my:ball:asset@
+            string name = "ball"
+        }
+        kind = "component"
+    )
+    {
+        custom color3f[] primvars:displayColor = [(0.247, 0.979, 0)] (
+            interpolation = "constant"
+        )
+        custom color3f[] primvars:foo = [(0.247, 0.979, 0)] (
+            interpolation = "constant"
+        )
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (-2.5, 0, 0, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+
+        def Xform "payload" (
+            instanceable = true
+            add references = </Flattened_Master_2>
+        )
+        {
+        }
+    }
+
+    def Xform "Instance12" (
+        assetInfo = {
+            asset identifier = @my:ball:asset@
+            string name = "ball"
+        }
+        kind = "component"
+    )
+    {
+        custom color3f[] primvars:displayColor = [(0.247, 0.979, 0)] (
+            interpolation = "constant"
+        )
+        custom color3f[] primvars:foo = [(0.247, 0.979, 0)] (
+            interpolation = "constant"
+        )
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+
+        def Xform "payload" (
+            instanceable = true
+            add references = </Flattened_Master_2>
+        )
+        {
+        }
+    }
+
+    def Xform "Instance13" (
+        assetInfo = {
+            asset identifier = @my:ball:asset@
+            string name = "ball"
+        }
+        kind = "component"
+    )
+    {
+        custom color3f[] primvars:displayColor = [(0.247, 0.979, 0)] (
+            interpolation = "constant"
+        )
+        custom color3f[] primvars:foo = [(0.247, 0.979, 0)] (
+            interpolation = "constant"
+        )
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (2.5, 0, 0, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+
+        def Xform "payload" (
+            instanceable = true
+            add references = </Flattened_Master_2>
+        )
+        {
+        }
+    }
+
+    def Xform "Instance14" (
+        assetInfo = {
+            asset identifier = @my:ball:asset@
+            string name = "ball"
+        }
+        kind = "component"
+    )
+    {
+        custom color3f[] primvars:displayColor = [(0, 0.161, 0.9)] (
+            interpolation = "constant"
+        )
+        custom color3f[] primvars:foo = [(0, 0.161, 0.9)] (
+            interpolation = "constant"
+        )
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (5, 0, 0, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+
+        def Xform "payload" (
+            instanceable = true
+            add references = </Flattened_Master_2>
+        )
+        {
+        }
+    }
+
+    def Xform "Instance15" (
+        assetInfo = {
+            asset identifier = @my:ball:asset@
+            string name = "ball"
+        }
+        kind = "component"
+    )
+    {
+        custom color3f[] primvars:displayColor = [(0.9, 0, 0.9)] (
+            interpolation = "constant"
+        )
+        custom color3f[] primvars:foo = [(0.9, 0, 0.9)] (
+            interpolation = "constant"
+        )
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (-5, 0, 2.5, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+
+        def Xform "payload" (
+            instanceable = true
+            add references = </Flattened_Master_1>
+        )
+        {
+        }
+    }
+
+    def Xform "Instance16" (
+        assetInfo = {
+            asset identifier = @my:ball:asset@
+            string name = "ball"
+        }
+        kind = "component"
+    )
+    {
+        custom color3f[] primvars:displayColor = [(0, 0.9, 0.45)] (
+            interpolation = "constant"
+        )
+        custom color3f[] primvars:foo = [(0, 0.9, 0.45)] (
+            interpolation = "constant"
+        )
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (-2.5, 0, 2.5, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+
+        def Xform "payload" (
+            instanceable = true
+            add references = </Flattened_Master_2>
+        )
+        {
+        }
+    }
+
+    def Xform "Instance17" (
+        assetInfo = {
+            asset identifier = @my:ball:asset@
+            string name = "ball"
+        }
+        kind = "component"
+    )
+    {
+        custom color3f[] primvars:displayColor = [(0.9, 0, 0.9)] (
+            interpolation = "constant"
+        )
+        custom color3f[] primvars:foo = [(0.9, 0, 0.9)] (
+            interpolation = "constant"
+        )
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 2.5, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+
+        def Xform "payload" (
+            instanceable = true
+            add references = </Flattened_Master_2>
+        )
+        {
+        }
+    }
+
+    def Xform "Instance18" (
+        assetInfo = {
+            asset identifier = @my:ball:asset@
+            string name = "ball"
+        }
+        kind = "component"
+    )
+    {
+        custom color3f[] primvars:displayColor = [(0.247, 0.979, 0)] (
+            interpolation = "constant"
+        )
+        custom color3f[] primvars:foo = [(0.247, 0.979, 0)] (
+            interpolation = "constant"
+        )
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (2.5, 0, 2.5, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+
+        def Xform "payload" (
+            instanceable = true
+            add references = </Flattened_Master_2>
+        )
+        {
+        }
+    }
+
+    def Xform "Instance19" (
+        assetInfo = {
+            asset identifier = @my:ball:asset@
+            string name = "ball"
+        }
+        kind = "component"
+    )
+    {
+        custom color3f[] primvars:displayColor = [(0, 0.161, 0.9)] (
+            interpolation = "constant"
+        )
+        custom color3f[] primvars:foo = [(0, 0.161, 0.9)] (
+            interpolation = "constant"
+        )
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (5, 0, 2.5, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+
+        def Xform "payload" (
+            instanceable = true
+            add references = </Flattened_Master_1>
+        )
+        {
+        }
+    }
+
+    def Xform "Instance20" (
+        assetInfo = {
+            asset identifier = @my:ball:asset@
+            string name = "ball"
+        }
+        kind = "component"
+    )
+    {
+        custom color3f[] primvars:displayColor = [(0.9, 0, 0.9)] (
+            interpolation = "constant"
+        )
+        custom color3f[] primvars:foo = [(0.9, 0, 0.9)] (
+            interpolation = "constant"
+        )
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (-5, 0, 5, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+
+        def Xform "payload" (
+            instanceable = true
+            add references = </Flattened_Master_2>
+        )
+        {
+        }
+    }
+
+    def Xform "Instance21" (
+        assetInfo = {
+            asset identifier = @my:ball:asset@
+            string name = "ball"
+        }
+        kind = "component"
+    )
+    {
+        custom color3f[] primvars:displayColor = [(0.247, 0.979, 0)] (
+            interpolation = "constant"
+        )
+        custom color3f[] primvars:foo = [(0.247, 0.979, 0)] (
+            interpolation = "constant"
+        )
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (-2.5, 0, 5, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+
+        def Xform "payload" (
+            instanceable = true
+            add references = </Flattened_Master_2>
+        )
+        {
+        }
+    }
+
+    def Xform "Instance22" (
+        assetInfo = {
+            asset identifier = @my:ball:asset@
+            string name = "ball"
+        }
+        kind = "component"
+    )
+    {
+        custom color3f[] primvars:displayColor = [(0.9, 0, 0)] (
+            interpolation = "constant"
+        )
+        custom color3f[] primvars:foo = [(0.9, 0, 0)] (
+            interpolation = "constant"
+        )
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 5, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+
+        def Xform "payload" (
+            instanceable = true
+            add references = </Flattened_Master_2>
+        )
+        {
+        }
+    }
+
+    def Xform "Instance23" (
+        assetInfo = {
+            asset identifier = @my:ball:asset@
+            string name = "ball"
+        }
+        kind = "component"
+    )
+    {
+        custom color3f[] primvars:displayColor = [(0.9, 0, 0.9)] (
+            interpolation = "constant"
+        )
+        custom color3f[] primvars:foo = [(0.9, 0, 0.9)] (
+            interpolation = "constant"
+        )
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (2.5, 0, 5, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+
+        def Xform "payload" (
+            instanceable = true
+            add references = </Flattened_Master_1>
+        )
+        {
+        }
+    }
+
+    def Xform "Instance24" (
+        assetInfo = {
+            asset identifier = @my:ball:asset@
+            string name = "ball"
+        }
+        kind = "component"
+    )
+    {
+        custom color3f[] primvars:displayColor = [(0.9, 0, 0)] (
+            interpolation = "constant"
+        )
+        custom color3f[] primvars:foo = [(0.9, 0, 0)] (
+            interpolation = "constant"
+        )
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (5, 0, 5, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+
+        def Xform "payload" (
+            instanceable = true
+            add references = </Flattened_Master_2>
+        )
+        {
+        }
+    }
+}
+
+def Camera "main_cam"
+{
+    float2 clippingRange = (1, 1000000)
+    float focalLength = 50
+    float focusDistance = 5
+    float fStop = 5.6
+    float horizontalAperture = 20
+    float horizontalApertureOffset = 0
+    token projection = "perspective"
+    double shutter:close = 0.25
+    double shutter:open = -0.25
+    float verticalAperture = 15
+    float verticalApertureOffset = 0
+    matrix4d xformOp:transform = ( (0.8607911470512802, -1.373018760908451e-7, 0.5089583491388292, 0), (0.3153488994384299, 0.7849204989107138, -0.5333431184638339, 0), (-0.3994917681018123, 0.6195964899753205, 0.675652659899412, 0), (-19.224657170232973, 29.378993683997972, 32.399273425853075, 1) )
+    uniform token[] xformOpOrder = ["xformOp:transform"]
+}
+

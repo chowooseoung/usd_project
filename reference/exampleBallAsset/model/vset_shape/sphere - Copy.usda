@@ -1,0 +1,42 @@
+#usda 1.0
+(
+    defaultPrim = "payload"
+)
+
+over "payload"(
+    prepend references = @sphere.usda@
+)
+{   
+    over "geo"(
+        prepend apiSchemas = ["CollectionAPI:pv_mat"]
+    )
+    {
+        uniform token collection:pv_mat:expansionRule = "expandPrims"
+        prepend rel collection:pv_mat:includes = [
+            </payload/geo/sphere>,
+        ]
+        rel material:binding:collection:pv_mat = [
+            </payload/geo.collection:pv_mat>,
+            </payload/Looks/material>
+        ]
+    }
+
+    def Scope "Looks"
+    {
+        def Material "material"
+        {
+            token inputs:frame:stPrimvarName = "st"
+            token outputs:surface.connect = </payload/Looks/material/pbrShader.outputs:surface>
+
+            def Shader "pbrShader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0, 1, 0)
+                float inputs:metalic = 0
+                float inputs:roughness = 0.4
+                token outputs:surface
+            }
+        }
+    }
+}
+

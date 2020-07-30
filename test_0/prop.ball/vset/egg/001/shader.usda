@@ -1,0 +1,40 @@
+#usda 1.0
+(
+    defaultPrim = "payload"
+)
+
+over "payload"
+{
+    def Scope "material"
+    {
+        def Material "ball_mtl"
+        {
+            token outputs:surface.connect = </payload/material/ball_mtl/UsdPS.outputs:surface>
+
+            def Shader "UsdPS"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (1, 0, 0)
+                float inputs:matalic = 0
+                float inputs:roughness = 0.4
+                token outputs:surface
+            }
+        }
+    }
+    
+    over "geom" (
+        prepend apiSchemas = ["CollectionAPI:geomBinding"]
+    )
+    {
+        uniform token collection:geomBinding:expansionRule = "expandPrims"
+        prepend rel collection:geomBinding:includes = [
+            </payload/geom/egg>
+        ]
+        rel material:binding:collection:geomBinding = [
+            </payload/geom.collection:geomBinding>,
+            </payload/material/ball_mtl>
+        ]
+    }
+}
+
+

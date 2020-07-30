@@ -1,0 +1,32 @@
+#usda 1.0
+(
+    "Created by UsdView"
+    endTimeCode = 1
+    framesPerSecond = 24
+    startTimeCode = 1
+    subLayers = [
+        @c:\Users\jinly\Downloads\compression\exampleBallAsset\exampleBallAsset\example_setup.usda@
+    ]
+    timeCodesPerSecond = 24
+)
+
+over "instances"
+{
+    over "Instance3" (
+        variants = {
+            string instancing = "off"
+            string shape = "sphere"
+        }
+    )
+    {
+    }
+
+    over "Instance4" (
+        variants = {
+            string instancing = "off"
+        }
+    )
+    {
+    }
+}
+

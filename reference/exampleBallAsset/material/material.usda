@@ -1,0 +1,58 @@
+#usda 1.0
+(
+    defaultPrim = "ball"
+)
+
+over "ball" (
+    append variantSets = "shading"
+)
+{
+    variantSet "shading" = {
+        "blue" {
+            custom color3f[] primvars:displayColor = [(0, 0.161, 0.9)] (
+                interpolation = "constant"
+            )
+            custom color3f[] primvars:foo = [(0, 0.161, 0.9)] (
+                interpolation = "constant"
+            )
+
+        }
+        "coral" {
+            custom color3f[] primvars:displayColor = [(0, 0.9, 0.45)] (
+                interpolation = "constant"
+            )
+            custom color3f[] primvars:foo = [(0, 0.9, 0.45)] (
+                interpolation = "constant"
+            )
+
+        }
+        "green" {
+            custom color3f[] primvars:displayColor = [(0.247, 0.979, 0)] (
+                interpolation = "constant"
+            )
+            custom color3f[] primvars:foo = [(0.247, 0.979, 0)] (
+                interpolation = "constant"
+            )
+
+        }
+        "pink" {
+            custom color3f[] primvars:displayColor = [(0.9, 0, 0.9)] (
+                interpolation = "constant"
+            )
+            custom color3f[] primvars:foo = [(0.9, 0, 0.9)] (
+                interpolation = "constant"
+            )
+
+        }
+        "red" {
+            custom color3f[] primvars:displayColor = [(0.9, 0, 0)] (
+                interpolation = "constant"
+            )
+            custom color3f[] primvars:foo = [(0.9, 0, 0)] (
+                interpolation = "constant"
+            )
+
+        }
+    }
+}
+

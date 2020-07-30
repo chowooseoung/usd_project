@@ -1,0 +1,341 @@
+#usda 1.0
+(
+    endTimeCode = 1
+    framesPerSecond = 24
+    startTimeCode = 1
+    timeCodesPerSecond = 24
+)
+
+def Xform "instances" (
+    kind = "assembly"
+)
+{
+    def Scope "Prototypes"
+    {
+        token visibility = "invisible"
+
+        def "ball" (
+            prepend references = @./asset/asset.usda@
+        )
+        {
+        }
+    }
+
+    def "Instance0" (
+        append references = </instances/Prototypes/ball>
+        variants = {
+            string shading = "blue"
+            string shape = "sphere"
+        }
+    )
+    {
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (-5, 0, -5, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+    }
+
+    def "Instance1" (
+        append references = </instances/Prototypes/ball>
+        variants = {
+            string shading = "coral"
+            string shape = "sphere"
+        }
+    )
+    {
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (-2.5, 0, -5, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+    }
+
+    def "Instance2" (
+        append references = </instances/Prototypes/ball>
+        variants = {
+            string shading = "blue"
+            string shape = "sphere"
+        }
+    )
+    {
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, -5, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+    }
+
+    def "Instance3" (
+        append references = </instances/Prototypes/ball>
+        variants = {
+            string shading = "blue"
+            string shape = "egg"
+        }
+    )
+    {
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (2.5, 0, -5, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+    }
+
+    def "Instance4" (
+        append references = </instances/Prototypes/ball>
+        variants = {
+            string shading = "blue"
+            string shape = "sphere"
+        }
+    )
+    {
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (5, 0, -5, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+    }
+
+    def "Instance5" (
+        append references = </instances/Prototypes/ball>
+        variants = {
+            string shading = "red"
+            string shape = "egg"
+        }
+    )
+    {
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (-5, 0, -2.5, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+    }
+
+    def "Instance6" (
+        append references = </instances/Prototypes/ball>
+        variants = {
+            string shading = "red"
+            string shape = "sphere"
+        }
+    )
+    {
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (-2.5, 0, -2.5, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+    }
+
+    def "Instance7" (
+        append references = </instances/Prototypes/ball>
+        variants = {
+            string shading = "red"
+            string shape = "egg"
+        }
+    )
+    {
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, -2.5, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+    }
+
+    def "Instance8" (
+        append references = </instances/Prototypes/ball>
+        variants = {
+            string shading = "red"
+            string shape = "sphere"
+        }
+    )
+    {
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (2.5, 0, -2.5, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+    }
+
+    def "Instance9" (
+        append references = </instances/Prototypes/ball>
+        variants = {
+            string shading = "pink"
+            string shape = "sphere"
+        }
+    )
+    {
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (5, 0, -2.5, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+    }
+
+    def "Instance10" (
+        append references = </instances/Prototypes/ball>
+        variants = {
+            string shading = "blue"
+            string shape = "sphere"
+        }
+    )
+    {
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (-5, 0, 0, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+    }
+
+    def "Instance11" (
+        append references = </instances/Prototypes/ball>
+        variants = {
+            string shading = "green"
+            string shape = "egg"
+        }
+    )
+    {
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (-2.5, 0, 0, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+    }
+
+    def "Instance12" (
+        append references = </instances/Prototypes/ball>
+        variants = {
+            string shading = "green"
+            string shape = "egg"
+        }
+    )
+    {
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+    }
+
+    def "Instance13" (
+        append references = </instances/Prototypes/ball>
+        variants = {
+            string shading = "green"
+            string shape = "egg"
+        }
+    )
+    {
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (2.5, 0, 0, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+    }
+
+    def "Instance14" (
+        append references = </instances/Prototypes/ball>
+        variants = {
+            string shading = "blue"
+            string shape = "egg"
+        }
+    )
+    {
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (5, 0, 0, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+    }
+
+    def "Instance15" (
+        append references = </instances/Prototypes/ball>
+        variants = {
+            string shading = "pink"
+            string shape = "sphere"
+        }
+    )
+    {
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (-5, 0, 2.5, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+    }
+
+    def "Instance16" (
+        append references = </instances/Prototypes/ball>
+        variants = {
+            string shading = "coral"
+            string shape = "egg"
+        }
+    )
+    {
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (-2.5, 0, 2.5, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+    }
+
+    def "Instance17" (
+        append references = </instances/Prototypes/ball>
+        variants = {
+            string shading = "pink"
+            string shape = "egg"
+        }
+    )
+    {
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 2.5, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+    }
+
+    def "Instance18" (
+        append references = </instances/Prototypes/ball>
+        variants = {
+            string shading = "green"
+            string shape = "egg"
+        }
+    )
+    {
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (2.5, 0, 2.5, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+    }
+
+    def "Instance19" (
+        append references = </instances/Prototypes/ball>
+        variants = {
+            string shading = "blue"
+            string shape = "sphere"
+        }
+    )
+    {
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (5, 0, 2.5, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+    }
+
+    def "Instance20" (
+        append references = </instances/Prototypes/ball>
+        variants = {
+            string shading = "pink"
+            string shape = "egg"
+        }
+    )
+    {
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (-5, 0, 5, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+    }
+
+    def "Instance21" (
+        append references = </instances/Prototypes/ball>
+        variants = {
+            string shading = "green"
+            string shape = "egg"
+        }
+    )
+    {
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (-2.5, 0, 5, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+    }
+
+    def "Instance22" (
+        append references = </instances/Prototypes/ball>
+        variants = {
+            string shading = "red"
+            string shape = "egg"
+        }
+    )
+    {
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 5, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+    }
+
+    def "Instance23" (
+        append references = </instances/Prototypes/ball>
+        variants = {
+            string shading = "pink"
+            string shape = "sphere"
+        }
+    )
+    {
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (2.5, 0, 5, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+    }
+
+    def "Instance24" (
+        append references = </instances/Prototypes/ball>
+        variants = {
+            string shading = "red"
+            string shape = "egg"
+        }
+    )
+    {
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (5, 0, 5, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+    }
+}
+
+def Camera "main_cam"
+{
+    float2 clippingRange = (1, 1000000)
+    float focalLength = 50
+    float focusDistance = 5
+    float fStop = 5.6
+    float horizontalAperture = 20
+    float horizontalApertureOffset = 0
+    token projection = "perspective"
+    double shutter:close = 0.25
+    double shutter:open = -0.25
+    float verticalAperture = 15
+    float verticalApertureOffset = 0
+    matrix4d xformOp:transform = ( (0.8607911470512802, -1.373018760908451e-7, 0.5089583491388292, 0), (0.3153488994384299, 0.7849204989107138, -0.5333431184638339, 0), (-0.3994917681018123, 0.6195964899753205, 0.675652659899412, 0), (-19.224657170232973, 29.378993683997972, 32.399273425853075, 1) )
+    uniform token[] xformOpOrder = ["xformOp:transform"]
+}
+

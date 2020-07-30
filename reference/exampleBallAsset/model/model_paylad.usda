@@ -1,0 +1,26 @@
+#usda 1.0
+(
+    defaultPrim = "payload"
+)
+
+over "payload" (
+    variants = {
+        string shape = "sphere"
+    }
+    append variantSets = "shape"
+)
+{
+    variantSet "shape" = {
+        "egg" (
+            prepend references = @./vset_shape/egg.usdc@
+        ) {
+
+        }
+        "sphere" (
+            prepend references = @./vset_shape/sphere.usdc@
+        ) {
+
+        }
+    }
+}
+
