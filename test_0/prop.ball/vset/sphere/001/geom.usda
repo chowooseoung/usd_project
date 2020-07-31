@@ -3,7 +3,7 @@
     defaultPrim = "payload"
 )
 
-def SkelRoot "payload"
+def Xform "payload"
 {
     def Xform "geom"
     {

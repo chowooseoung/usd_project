@@ -1,0 +1,88 @@
+#usda 1.0
+(
+    defaultPrim = "shot1"
+    endTimeCode = 5
+    metersPerUnit = 0.01
+    startTimeCode = 1
+    upAxis = "Y"
+)
+
+def Scope "shot1" (
+    
+)
+{
+    def Scope "assets" 
+    {
+        token visibility = "invisible"
+
+        def "ball" (
+            prepend payload = @./asset.usda@
+        )
+        {
+        }
+    }
+
+    def Scope "animation" 
+    {
+        def SkelAnimation "Animation"
+        {
+            uniform token[] joints = ["joint1"]
+            quatf[] rotations = [(0.6912714, -0.23086154, 0.45690322, -0.5099865)]
+            quatf[] rotations.timeSamples = {
+                1: [(1, 0, 0, 0)],
+                2: [(0.9897239, -0.07575767, 0.04087586, -0.11417771)],
+                3: [(0.90461487, -0.19867346, 0.1840894, -0.32910773)],
+                4: [(0.76307625, -0.24096045, 0.36988536, -0.4720567)],
+                5: [(0.6912714, -0.23086154, 0.45690322, -0.5099865)],
+            }
+            half3[] scales = [(3.34766, 1, 3.17578)]
+            half3[] scales.timeSamples = {
+                1: [(1, 1, 1)],
+                2: [(1.36621, 1, 1.33984)],
+                3: [(2.17383, 1, 2.08789)],
+                4: [(2.98047, 1, 2.83594)],
+                5: [(3.34766, 1, 3.17578)],
+            }
+            float3[] translations = [(-13.011733, 7.9809337, 18.098843)]
+            float3[] translations.timeSamples = {
+                1: [(0, 0, 0)],
+                2: [(-2.0330832, 1.247021, 2.8279443)],
+                3: [(-6.5058665, 3.9904668, 9.049421)],
+                4: [(-10.978649, 6.733913, 15.270899)],
+                5: [(-13.011733, 7.9809337, 18.098843)],
+            }
+        }
+    }
+
+    def "Instance0" (
+        append references = </shot1/assets/ball>
+    )
+    {
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (-5, 0, -5, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+        
+        over "Rig"
+        {
+            over "joint1"
+            {
+                rel skel:animationSource = </shot1/animation/Animation>
+            }
+        }
+    }
+
+    def "Instance1" (
+        append references = </shot1/assets/ball>
+    )
+    {
+        matrix4d xformOp:transform:instances1 = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (-2.5, 0, -5, 1) )
+        uniform token[] xformOpOrder = ["xformOp:transform:instances1"]
+
+        over "Rig"
+        {
+            over "joint1"
+            {
+                rel skel:animationSource = </shot1/animation/Animation>
+            }
+        }
+    }
+}

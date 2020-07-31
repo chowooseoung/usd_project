@@ -11,7 +11,7 @@ def "payload" (
 {
 }
 
-def Xform "ball"
+def SkelRoot "ball"
 {
     def "payload" (
         prepend references = </payload>

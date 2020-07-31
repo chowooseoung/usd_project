@@ -1,0 +1,22 @@
+#usda 1.0
+(
+    defaultPrim = "Shader"
+    upAxis = "Y"
+)
+
+def Scope "Shader"
+{
+    def Material "ball_mtl"
+    {
+        token outputs:surface.connect = </Shader/ball_mtl/UsdPS.outputs:surface>
+
+        def Shader "UsdPS"
+        {
+            uniform token info:id = "UsdPreviewSurface"
+            color3f inputs:diffuseColor = (1, 0, 0)
+            float inputs:matalic = 0
+            float inputs:roughness = 0.4
+            token outputs:surface
+        }
+    }
+}

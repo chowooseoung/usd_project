@@ -11,13 +11,20 @@ def SkelRoot "HumanFemale_Group" (
         string rigComplexity = "high"
     }
     prepend variantSets = ["geometricLOD", "rigComplexity"]
+    
 )
 {
     float3[] extent = [(-73.708176, -28.084373, -13.51461), (73.708176, 17.031977, 134.28993)]
     rel skel:skeleton = </HumanFemale_Group/Rig/Skel>
     matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0, 1) )
     uniform token[] xformOpOrder = ["xformOp:transform"]
+    
+    over "HumanFemale" (
+        instanceable = true
+    )
+    {
 
+    }
     def Scope "Rig" (
         kind = "component"
         prepend references = @./assets/HumanFemale.rig.usd@

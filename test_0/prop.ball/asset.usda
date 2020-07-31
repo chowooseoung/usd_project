@@ -3,7 +3,8 @@
     defaultPrim = "ball"
 )
 
-def Xform "ball" (
+def SkelRoot "ball" (
+    prepend apiSchemas = ["SkelBindingAPI"]
     assetInfo = {
         asset identifier = @my:ball:asset@
         string name = "ball"
@@ -14,7 +15,7 @@ def Xform "ball" (
         @./payload.usda@
     ]
     variants = {
-        string instancing = "on"
+        string instancing = "off"
     }
     append variantSets = "instancing"
 )
